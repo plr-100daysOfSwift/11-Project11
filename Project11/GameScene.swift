@@ -9,6 +9,14 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
+	var scoreLabel: SKLabelNode!
+
+	var score = 0 {
+		didSet {
+			scoreLabel.text = "Score: \(score)"
+		}
+	}
+
 	override func didMove(to view: SKView) {
 		let background = SKSpriteNode(imageNamed: "background")
 		background.position = CGPoint(x: 512, y: 384)
@@ -17,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		addChild(background)
 		physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
 		physicsWorld.contactDelegate = self
-		
+
 		makeSlot(at: CGPoint(x: 128, y: 0), isGood: true)
 		makeSlot(at: CGPoint(x: 384, y: 0), isGood: false)
 		makeSlot(at: CGPoint(x: 640, y: 0), isGood: true)
