@@ -82,6 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 				let box = SKSpriteNode(color: UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1), size: size)
 				box.zRotation = CGFloat.random(in: 0...CGFloat.pi)
 				box.position = location
+				box.name = "box"
 
 				box.physicsBody = SKPhysicsBody(rectangleOf: size)
 				box.physicsBody?.isDynamic = false
@@ -158,7 +159,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		} else if object.name == "bad" {
 			destroy(ball: ball)
 			score -= 1
+		} else if object.name == "box" {
+			removeObstacle(box: object)
 		}
+	}
+
+	func removeObstacle(box: SKNode) {
+		box.removeFromParent()
 	}
 
 	func destroy(ball: SKNode) {
