@@ -55,6 +55,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		scoreLabel.position = CGPoint(x: 980, y: 700)
 		addChild(scoreLabel)
 
+		editLabel = SKLabelNode(fontNamed: "Chalkduster")
+		editLabel.text = "Edit"
+		editLabel.position = CGPoint(x: 80, y: 700)
+		addChild(editLabel)
+
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
