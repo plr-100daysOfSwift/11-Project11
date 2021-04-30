@@ -75,12 +75,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			if editingMode {
 				let size = CGSize(width: Int.random(in: 16...128), height: 16)
 				let box = SKSpriteNode(color: UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1), size: size)
-				box.zRotation = CGFloat.random(in: 0...3)
+				box.zRotation = CGFloat.random(in: 0...CGFloat.pi)
 				box.position = location
 
 				box.physicsBody = SKPhysicsBody(rectangleOf: size)
 				box.physicsBody?.isDynamic = false
-				
+
 				addChild(box)
 
 			} else {
