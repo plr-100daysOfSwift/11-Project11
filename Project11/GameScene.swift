@@ -37,6 +37,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		makeBouncer(at: CGPoint(x: 768, y: 0))
 		makeBouncer(at: CGPoint(x: 1024, y: 0))
 
+		scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+		scoreLabel.text = "Score: 0"
+		scoreLabel.horizontalAlignmentMode = .right
+		scoreLabel.position = CGPoint(x: 980, y: 700)
+		addChild(scoreLabel)
+
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
