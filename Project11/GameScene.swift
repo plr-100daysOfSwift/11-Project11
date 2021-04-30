@@ -12,6 +12,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 	let balls = ["ballBlue", "ballCyan", "ballGreen", "ballGrey", "ballPurple", "ballRed", "ballYellow",]
 
+	var ballsAvailable = 5
+
 	var scoreLabel: SKLabelNode!
 
 	var score = 0 {
@@ -87,6 +89,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 				addChild(box)
 
 			} else {
+				guard ballsAvailable > 0 else {
+					return
+				}
 				let ball = SKSpriteNode(imageNamed: balls.randomElement() ?? "ballRed")
 				ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2)
 				ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
@@ -94,6 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 				ball.position = CGPoint(x: location.x, y: self.size.height)
 				ball.name = "ball"
 				addChild(ball)
+				ballsAvailable -= 1
 			}
 		}
 	}
