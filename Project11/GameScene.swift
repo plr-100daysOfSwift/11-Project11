@@ -17,6 +17,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		}
 	}
 
+	var editLabel: SKLabelNode!
+
+	var editingMode = false {
+		didSet {
+			if editingMode {
+				editLabel.text = "Done"
+			} else {
+				editLabel.text = "Edit"
+			}
+		}
+	}
+
 	override func didMove(to view: SKView) {
 		let background = SKSpriteNode(imageNamed: "background")
 		background.position = CGPoint(x: 512, y: 384)
