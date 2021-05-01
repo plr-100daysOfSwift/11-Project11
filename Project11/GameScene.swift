@@ -12,13 +12,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 	let balls = ["ballBlue", "ballCyan", "ballGreen", "ballGrey", "ballPurple", "ballRed", "ballYellow",]
 
-	var ballsAvailable = 5
 
 	var scoreLabel: SKLabelNode!
 
 	var score = 0 {
 		didSet {
 			scoreLabel.text = "Score: \(score)"
+		}
+	}
+
+	var ballsLabel: SKLabelNode!
+
+	var ballsAvailable = 5 {
+		didSet {
+			ballsLabel.text = "Balls available: \(ballsAvailable)"
 		}
 	}
 
@@ -59,6 +66,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		scoreLabel.horizontalAlignmentMode = .right
 		scoreLabel.position = CGPoint(x: 980, y: 700)
 		addChild(scoreLabel)
+
+		ballsLabel = SKLabelNode(fontNamed: "Chalkduster")
+		ballsLabel.text = "Balls available: \(ballsAvailable)"
+		ballsLabel.horizontalAlignmentMode = .right
+		ballsLabel.position = CGPoint(x: 980, y: 650)
+		addChild(ballsLabel)
 
 		editLabel = SKLabelNode(fontNamed: "Chalkduster")
 		editLabel.text = "Edit"
