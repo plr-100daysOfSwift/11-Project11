@@ -70,10 +70,18 @@
 				DA3B0290263A113500B69891 /* Main.storyboard */,
 				DA3B0293263A113700B69891 /* Assets.xcassets */,
 				DA3B0295263A113700B69891 /* Info.plist */,
+				DA431272263CD8CD00BC4408 /* Particles */,
+			);
+			path = Project11;
+			sourceTree = "<group>";
+		};
+		DA431272263CD8CD00BC4408 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
 				DA431268263CB7C700BC4408 /* FireParticles.sks */,
 				DA431270263CD5F100BC4408 /* MagicParticles.sks */,
 			);
-			path = Project11;
+			path = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
