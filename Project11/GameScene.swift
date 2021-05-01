@@ -178,6 +178,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	}
 
 	func removeObstacle(box: SKNode) {
+		ballsAvailable += 1
+		if let magicParticles = SKEmitterNode(fileNamed: "MagicParticles") {
+			magicParticles.position = box.position
+			addChild(magicParticles)
+		}
 		box.removeFromParent()
 	}
 
